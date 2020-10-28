@@ -1,3 +1,4 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 400,
@@ -21,7 +22,7 @@
       "title": "Number of Public Holidays"
     },
     "y": {"field": "Countries", "type": "nominal"},
-    "color": {"field": "ThresHold", "type": "nominal"},
+    "color": {"field": "ThresHold", "type": "nominal", "scale": { "range": ["#e6550d","#fdbe85","#fd8d3c"]}},
     "opacity": {
       "condition": {"selection": "country_selection", "value": 1},
       "value": 0.2
