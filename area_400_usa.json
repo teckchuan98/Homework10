@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 400,
+  "title": "Holidays in the 50 States of America (2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/teckchuan98/Assignment2/main/UsaStates.csv"
+  },
+  "selection": {
+    "country_selection": {
+      "type": "multi",
+      "fields": ["ThresHold"],
+      "bind": "legend"
+    }
+  },
+  "mark": "area",
+  "encoding": {
+    "y": {
+      "field": "Holidays",
+      "type": "quantitative",
+      "title": "Number of Holidays"
+    },
+    "x": {"field": "States", "type": "nominal"},
+    "color": {
+      "field": "ThresHold",
+      "type": "nominal",
+      "scale": {"range": ["#0038BC", "#8799FF", "#2953F5"]}
+    },
+    "opacity": {
+      "condition": {"selection": "country_selection", "value": 1},
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "States", "type": "nominal", "title": "Countries"},
+      {"field": "Holidays", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
